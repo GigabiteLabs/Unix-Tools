@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "starting installer..."
+
+# source installation vars for this systems
+source "$(pwd)/install/scripts/installer_vars.sh"
+
+# gather system info
+source $INSTALLER_DIR/systeminfo.sh
+
+# update the installer vars for system-specific config
+source "$(pwd)/install/scripts/installer_vars.sh"
+
+# make sure all required unix env tools are installed
+$INSTALLATION_ROOT/systems/unix/devtools
+

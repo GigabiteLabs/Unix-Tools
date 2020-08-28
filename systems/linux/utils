@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "checking for Linux env utils ..."
+
+# update
+sudo apt update
+
+# install ssh server
+sudo apt install openssh-server -y
+# enable ssh access
+sudo ufw allow ssh
