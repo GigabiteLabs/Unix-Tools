@@ -14,3 +14,4 @@ source ~/.profile
 # install extras reccommended by Homebrew
 sudo apt-get install build-essential -y # dev tool essentials
 brew install gcc # C compiler
+brew install apt
