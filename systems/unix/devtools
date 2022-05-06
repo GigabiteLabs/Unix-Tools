@@ -17,4 +17,4 @@ fi
 tryInstall "ibmcloud" &&
 tryInstall "az" &&
 tryInstall "node" &&
-tryInstall "python"
+tryInstall "python" &&
