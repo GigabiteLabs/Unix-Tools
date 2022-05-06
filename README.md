@@ -4,7 +4,13 @@ An installer for quickly setting up a new Unix-based OS installation with standa
 ## Use
 This installer is intended to be used by GigabiteLabs developers to (mostly) automate the setup and configuration of a new unix-based development machine with our most common and standard tools.
 
-However, if anyone else finds it useful, 
+However, if anyone else finds it useful for setting your envs, it is licensed MIT.
+
+### Install
+- clone this repository
+- cd to the root of the repo folder
+- start the installer by runing: 
+ - `./install.sh`
 
 ## What's Included
 
