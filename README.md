@@ -19,7 +19,6 @@ All Unix systems (macOS & Linux):
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
-- [Helm](https://helm.sh/docs/intro/install/)
 - [sshpass](https://gist.github.com/DanBurkhardt/ec0e61431b985248f5b2f225b2a56b83)
 - [Curl](https://develop.zendesk.com/hc/en-us/articles/360001068567-Installing-and-using-cURL)
 
