@@ -33,7 +33,7 @@ tryInstall() {
     if [ "$(should_install $APP_NAME)" == "true" ]; then
         bash $INSTALLER_DIR/utils/install-$APP_NAME.sh
     else 
-        echo "$APP_NAME already installed ✅"
+        echo "$APP_NAME is already installed ✅"
     fi
 }
 # export functions
