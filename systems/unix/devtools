@@ -14,7 +14,8 @@ else
     echo "homebrew already installed ✅"
 fi
 
-tryInstall "ibmcloud" &&
-tryInstall "az" &&
-tryInstall "node" &&
-tryInstall "python" &&
+tryInstall "docker"
+tryInstall "ibmcloud"
+tryInstall "az"
+tryInstall "node"
+tryInstall "python"

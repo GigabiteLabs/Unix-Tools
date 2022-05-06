@@ -17,3 +17,8 @@ elif [ "$SYSTEM_TYPE" = "Mac" ]; then
 else
     echo "WARNING: unsupported system type, neither mac nor linux, skipping Azure CLI installation."
 fi
+
+echo "cleaning up installer"
+bash $INSTALLATION_ROOT/cleanup.sh
+
+printf "\n ✅  Installation complete.\n"

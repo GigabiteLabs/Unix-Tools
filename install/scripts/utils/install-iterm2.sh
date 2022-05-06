@@ -20,7 +20,3 @@ unzip "$TMP_DIR/$ZIP_FILE" &&
 
 # mv to applications dir
 mv $APP_NAME $APPLICATION_DIR
-
-# cleanup
-cd ..
-rm -r $TMP_DIR
