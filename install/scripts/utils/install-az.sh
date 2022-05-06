@@ -1,12 +1,9 @@
 #!/bin/bash
 echo "installing Azure CLI ..."
 
-source $INSTALLER_DIR/systeminfo.sh
-
-
-if [ "$SYSTEM_TYPE" == "Linux" ]; then
+if [ "$SYSTEM_TYPE" = "Linux" ]; then
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-elif ["$SYSTEM_TYPE" == "Mac"]; then
+elif [ "$SYSTEM_TYPE" = "Mac" ]; then
     brew update && brew install azure-cli
 else
     echo "WARNING: unsupported system type, neither mac nor linux, skipping Azure CLI installation."

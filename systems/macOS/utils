@@ -1,3 +1,9 @@
 #!/bin/sh
+echo "installing macOS utils ..."
 
-echo "checking for macOS env utils ..."
+# determine if sshpass should be installed
+if [ "$(should_install sshpass)" == "true" ]; then
+    sh $INSTALLER_DIR/utils/install-sshpass.sh;
+else 
+    printf "sshpass already installed ✅"
+fi

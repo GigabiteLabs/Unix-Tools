@@ -1,16 +1,19 @@
 #!/bin/bash
 
-echo "starting installer..."
+echo "starting installer"
 
 # source installation vars for this systems
-source "$(pwd)/install/scripts/installer_vars.sh"
+source "$(pwd)/install/scripts/installer_vars.sh" &&
 
-# gather system info
-source $INSTALLER_DIR/systeminfo.sh
+# run installs for all unix envs
+$UNIX_SYS_DIR/devtools &&
 
-# update the installer vars for system-specific config
-source "$(pwd)/install/scripts/installer_vars.sh"
-
-# make sure all required unix env tools are installed
-$INSTALLATION_ROOT/systems/unix/devtools
-
+# run system-specific installs
+if [ "$SYSTEM_TYPE" = "Linux" ]; then
+    bash "$INSTALLATION_ROOT/systems/linux";
+elif [ "$SYSTEM_TYPE" = "Mac" ]; then
+    $MACOS_SYS_DIR/devtools;
+    $MACOS_SYS_DIR/utils;
+else
+    echo "WARNING: unsupported system type, neither mac nor linux, skipping Azure CLI installation."
+fi

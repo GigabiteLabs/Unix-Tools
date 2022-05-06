@@ -1,43 +1,20 @@
 #!/bin/bash
+echo "installing shared unix system tools ..."
 
-echo "checking for unix env developer tools ..."
-
-# source vars
-source $INSTALLER_DIR/installer_vars.sh
-
-echo "$(should_install curl)"
-
-# determine if Curl should be installed
-if [ "$(should_install curl)" == "true" ]; then
-    sh $INSTALLER_DIR/utils/install-curl.sh;
-else 
-    echo "Curl already installed ✅"
-fi
-
-# determine if Homebrew should be installed
+# run system-specific homebrew installation
 if [ "$(should_install brew)" == "true" ]; then
-    sh $INSTALLER_DIR/utils/install-homebrew.sh;
+    if [ "$SYSTEM_TYPE" = "Linux" ]; then
+        bash $INSTALLER_DIR/utils/install-homebrew-linux.sh
+    elif [ "$SYSTEM_TYPE" = "Mac" ]; then
+        bash $INSTALLER_DIR/utils/install-homebrew-mac.sh
+    else
+        echo "WARNING: unsupported system type, neither mac nor linux, skipping Azure CLI installation."
+    fi
 else 
-    echo "Homebrew already installed ✅"
+    echo "homebrew already installed ✅"
 fi
 
-# determine if Bash should be installed
-if [ "$(should_install sshpass)" == "true" ]; then
-    sh $INSTALLER_DIR/utils/install-sshpass.sh;
-else 
-    echo "sshpass already installed ✅"
-fi
-
-# determine if IBM Cloud CLI should be installed
-if [ "$(should_install ibmcloud)" == "true" ]; then
-    sh $INSTALLER_DIR/utils/install-ibmcloud-cli.sh;
-else 
-    echo "IBM Cloud CLI already installed ✅"
-fi
-
-# determine if Azure CLI should be installed
-if [ "$(should_install az)" == "true" ]; then
-    sh $INSTALLER_DIR/utils/install-azure-cli.sh;
-else 
-    echo "Microsoft Azure CLI already installed ✅"
-fi
+tryInstall "ibmcloud" &&
+tryInstall "az" &&
+tryInstall "node" &&
+tryInstall "python"

@@ -1,3 +1,15 @@
 #!/bin/sh
+echo "installing for macOS developer tools ..."
 
-echo "checking for macOS env developer tools ..."
+# install xcode tools
+bash $MACOS_SYS_DIR/scripts/install-xcode-tools.sh
+
+# determine if iterm2 should be installed
+if [ ! -d "/Applications/iTerm.app" ]; then
+    bash "$INSTALLER_DIR/utils/install-iterm2.sh";
+else 
+    echo "Iterm2 already installed ✅"
+fi
+
+# install gpg
+bash $MACOS_SYS_DIR/scripts/install-pgp.sh

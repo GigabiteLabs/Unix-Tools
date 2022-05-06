@@ -1,11 +1,27 @@
 #!/bin/sh
 
-echo "checking for Linux env utils ..."
+printf "installing Linux utils ..."
 
 # update
 sudo apt update
 
 # install ssh server
 sudo apt install openssh-server -y
+
 # enable ssh access
 sudo ufw allow ssh
+
+# source profile
+source ~/.profile
+
+# install extras reccommended by Homebrew
+sudo apt-get install build-essential -y # dev tool essentials
+brew install gcc # C compiler
+brew install apt
+
+# determine if sshpass should be installed
+if [ "$(should_install sshpass)" == "true" ]; then
+    sh $INSTALLER_DIR/utils/install-sshpass.sh;
+else 
+    printf "sshpass already installed ✅"
+fi
